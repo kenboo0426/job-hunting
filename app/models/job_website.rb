@@ -1,0 +1,2 @@
+class JobWebsite < ApplicationRecord
+end
