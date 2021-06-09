@@ -1,24 +1,21 @@
-# README
+# Job Hunting
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+キーワードを入れることによって、ヒットした求人情報を毎朝8時にSlackに通知できるアプリです
 
-Things you may want to cover:
+## 利用方法
+ルートディレクトリに.envファイルを作成する
+.envファイルに以下を定義する
+・WEBHOOK = "Slackで取得したwebhook" 
+・CHANNEL="Slackのチャンネル名"
 
-* Ruby version
+services/parser配下にあるファイルにキーワードを記述する
 
-* System dependencies
+:例
+KEYWORDS = %w(Rails rails Ruby ruby)
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## 環境
+ruby 2.6.6
+rails 6.1.3.2
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
