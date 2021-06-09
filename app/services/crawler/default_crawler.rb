@@ -60,9 +60,7 @@ module Crawler
     end
 
     def set_params(articles_docs)
-      
       articles_params = articles_docs.map do |element|
-        
         {
           url: fetch_url(element),
           title: fetch_title(element),

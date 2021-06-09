@@ -13,7 +13,7 @@ module Crawler
 
     def fetch_url(element)
       sub_url = element.css('a.tapArea').first[:href].split('&').last
-      "#{host}/#{sub_url}"
+      "#{host}#{sub_url}"
     end
 
     def fetch_company_name(element)

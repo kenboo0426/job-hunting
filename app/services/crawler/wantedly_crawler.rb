@@ -14,7 +14,7 @@ module Crawler
     end
 
     def fetch_url(element)
-      sub_url = element.css('a').first[:href]
+      sub_url = element.css('a').first[:href].split("?")[0]
       "#{host}#{sub_url}"
     end
 
