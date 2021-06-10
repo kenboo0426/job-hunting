@@ -1,7 +1,6 @@
 module Crawler
   class WantedlyCrawler < DefaultCrawler
 
-    # KEYWORDS = %w(NPO NGO 国際協力 子ども 保育 介護 福祉 地域活性化 まちづくり 地方創生 農業 スポーツ 動物 ボランティア)
 
     self.configure do |c|
       c.host = 'https://www.wantedly.com'
