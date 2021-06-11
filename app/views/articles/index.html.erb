@@ -1,0 +1,16 @@
+<table border="1">
+  <tr>
+    <th>会社名</th>
+    <th>勤務地</th>
+    <th>説明</th>
+    <th>公開日</th>
+  </tr>
+  <% @articles.each do |article| %>
+  <tr>
+    <td><%= article.company_name %></td>
+    <td><%= article.place %></td>
+    <td><%= article.title %></td>
+    <td></td>
+  </tr>
+  <% end %>
+</table>

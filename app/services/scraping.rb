@@ -13,9 +13,10 @@ class Scraping
       begin
         parser = find_parser(article).new(article)
         update_params = parser.set_update_params
-        article.update(update_params)
-        next unless parser.is_valid_keyword?
-        SlackNotifier.notifier_job_offer(url: article.url, job_header: article.title)
+        # article.update(update_params)
+        # next unless parser.is_valid_keyword?
+        # byebug
+        SlackNotifier.notifier_job_offer(url: article.url, job_header: article.title, company_name: article.company_name, host: parser.host, site_name: parser.site_name)
       rescue => e
         p e
       end
