@@ -1,0 +1,61 @@
+version: "3"
+services:
+  web:
+    build: ./docker/ruby
+    volumes:
+      - '.:/app'
+    # volumes:
+    #   - .:/app
+    #   - vendor_bundle:/user/local/bundle
+    ports:
+      - "3003:3000"
+    links:
+      # - db
+      - elasticsearch
+    # environment:
+    #   - RAILS_DATABASE_USERNAME=root
+    #   - RAILS_DATABASE_PASSWORD=docker
+    #   - RAILS_DATABASE_NAME=rails_chewy_sample
+    #   - RAILS_DATABASE_HOST=db
+    tty: true
+    stdin_open: true
+  elasticsearch:
+    build: ./docker/elasticsearch
+    container_name: elasticsearch
+    environment:
+      - cluster.name=rails-sample-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - chewy_sample_data:/usr/share/elasticsearch/data
+    ports:
+      - 9202:9200
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:6.5.4
+  #   environment:
+  #     SERVER_NAME: localhost:5601
+  #     ELASTICSEARCH_URL: http://chewy_sample:9200
+  #   ports:
+  #     - 5601:5601
+  #   depends_on:
+  #     - es
+  # db:
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=docker
+  #     - MYSQL_PASSWORD=docker
+  #     - MYSQL_USER=docker
+  #     - MYSQL_DATABASE=chewy_sample
+  #   build: ./docker/mysql
+  #   ports:
+  #     - "3306:3306"
+  
+
+volumes:
+  chewy_sample_data:
+    driver: local
+  # vendor_bundle:
+  #   driver: local

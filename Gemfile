@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+# ruby '2.6.6'
 
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'sqlite3', '~> 1.4'
@@ -14,6 +14,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'slack-notifier'
 gem 'dotenv-rails'
 gem 'whenever', require: false
+gem 'chewy'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
