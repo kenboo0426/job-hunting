@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_052912) do
+ActiveRecord::Schema.define(version: 2021_06_14_095042) do
 
-  create_table "job_websites", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.string "url", null: false
     t.string "title", null: false
     t.string "company_name"
@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 2021_06_06_052912) do
     t.boolean "scraped", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["url"], name: "index_job_websites_on_url", unique: true
+    t.date "release_date"
+    t.index ["url"], name: "index_articles_on_url", unique: true
   end
 
 end

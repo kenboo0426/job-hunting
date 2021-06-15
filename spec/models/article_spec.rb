@@ -1,11 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe JobWebsite, type: :model do
+RSpec.describe Article, type: :model do
   describe "DBテスト" do
-    let(:job_offer){JobWebsite.new}
+    let(:job_offer){Article.new}
 
     it "urlが一意である" do
-      JobWebsite.create(url: "https://example.com", title: "テストサンプル")
+      Chewy.strategy(:atomic) do
+        Article.create(url: "https://example.com", title: "テストサンプル")
+      end
       job_offer.url = "https://example.com"
       job_offer.title = "テストサンプル"
       expect do

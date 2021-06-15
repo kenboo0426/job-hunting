@@ -1,1 +1,1 @@
-Chewy.settings = {host: 'localhost:9250'}
+Chewy.settings = {host: 'elasticsearch:9200'}

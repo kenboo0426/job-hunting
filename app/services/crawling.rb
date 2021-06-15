@@ -13,7 +13,7 @@ class Crawling
       #hash
       articles_info.each do |article_info|
         begin
-          JobWebsite.create(article_info)
+          Article.create(article_info)
         rescue => e
           p "#{crawler.site_name}  #{e}"
         end
