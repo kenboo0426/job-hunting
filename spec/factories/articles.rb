@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :job_website do
+  factory :article do
     
   end
 end

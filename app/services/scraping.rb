@@ -4,7 +4,7 @@ require 'open-uri'
 class Scraping
 
   def initialize
-    @should_scraping_articles = JobWebsite.where(scraped: false)
+    @should_scraping_articles = Article.where(scraped: false)
     @parsers = set_all_parsers
   end
 

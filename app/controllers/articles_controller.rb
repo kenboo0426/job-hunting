@@ -1,8 +1,14 @@
 class ArticlesController < ApplicationController
+
   def index
-    @articles = JobWebsite.all
+    @articles = Article.search(search_word)
+
   end
 
-  def show
-  end
+  private
+
+    def search_word
+      @search_word ||= params[:keyword]
+    end
+
 end
